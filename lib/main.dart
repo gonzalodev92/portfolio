@@ -42,216 +42,25 @@ class _MyHomePageState extends State<MyHomePage> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Stack(
-                alignment: Alignment.center,
-                children: <Widget>[
-                  Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: ExactAssetImage('assets/images/header-bg.png'),
-                        fit: BoxFit.fill,
-                      ),
-                    ),
-                    child: BackdropFilter(
-                      filter: ImageFilter.blur(sigmaX: 2, sigmaY: 2),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.black.withOpacity(0.2),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    right: 0,
-                    top: 0,
-                    child: Container(
-                      padding: EdgeInsets.all(12),
-                      margin: EdgeInsets.only(right: 32),
-                      child: Row(
-                        children: <Widget>[
-                          Container(
-                            padding: EdgeInsets.all(16),
-                            child: Text(
-                              "ABOUT",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontFamily: 'Montserrat',
-                                fontWeight: FontWeight.w500,
-                                letterSpacing: 1.0,
-                                fontSize: 16,
-                              ),
-                            ),
-                          ),
-                          Container(
-                            padding: EdgeInsets.all(16),
-                            child: Text(
-                              "SERVICES",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontFamily: 'Montserrat',
-                                fontWeight: FontWeight.w500,
-                                letterSpacing: 1.0,
-                                fontSize: 16,
-                              ),
-                            ),
-                          ),
-                          Container(
-                            padding: EdgeInsets.all(16),
-                            child: Text(
-                              "PORTFOLIO",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontFamily: 'Montserrat',
-                                fontWeight: FontWeight.w500,
-                                letterSpacing: 1.0,
-                                fontSize: 16,
-                              ),
-                            ),
-                          ),
-                          Container(
-                            padding: EdgeInsets.all(16),
-                            child: Text(
-                              "EXPERIENCE",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontFamily: 'Montserrat',
-                                fontWeight: FontWeight.w500,
-                                letterSpacing: 1.0,
-                                fontSize: 16,
-                              ),
-                            ),
-                          ),
-                          Container(
-                            padding: EdgeInsets.all(16),
-                            child: Text(
-                              "CONTACT",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontFamily: 'Montserrat',
-                                fontWeight: FontWeight.w500,
-                                letterSpacing: 1.0,
-                                fontSize: 16,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    left: 0,
-                    top: 0,
-                    child: Container(
-                      padding: EdgeInsets.all(24),
-                      child: Text(
-                        "Gonzalo Lopez",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: 'Kaushanscript',
-                          fontWeight: FontWeight.w400,
-                          fontStyle: FontStyle.italic,
-                          letterSpacing: 1.0,
-                          fontSize: 22,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    left: 0,
-                    right: 0,
-                    child: Column(
-                      children: <Widget>[
-                        Container(
-                          margin: EdgeInsets.only(top: 42),
-                          width: 120.0,
-                          height: 120.0,
-                          padding: const EdgeInsets.all(8.0),
-                          decoration: BoxDecoration(
-                            color: AppColors.hexToColor('EFF4F6'),
-                            shape: BoxShape.circle,
-                          ),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(126),
-                            child: Image.asset(
-                              'assets/images/profile_blur.png',
-                              fit: BoxFit.fitWidth,
-                            ),
-                          ),
-                        ),
-                        Container(
-                          width: double.infinity,
-                          padding: EdgeInsets.only(right: 42),
-                          child: Text(
-                            "Welcome To My Studio!",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: 'Kaushanscript',
-                              fontWeight: FontWeight.w400,
-                              fontStyle: FontStyle.italic,
-                              letterSpacing: 1.0,
-                              fontSize: 40,
-                            ),
-                          ),
-                        ),
-                        Container(
-                          padding: EdgeInsets.only(top: 24),
-                          child: Text(
-                            "I'LL DEVELOP YOUR\nNEXT MOBILE APP",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.w600,
-                              letterSpacing: 1.0,
-                              fontSize: 70,
-                            ),
-                          ),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(top: 42),
-                          child: RaisedButton(
-                            color: AppColors.hexToColor('FF9502'),
-                            child: Container(
-                              padding: EdgeInsets.all(22),
-                              child: Text(
-                                "TELL ME MORE",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.w600,
-                                  letterSpacing: 1.0,
-                                  fontSize: 22,
-                                ),
-                              ),
-                            ),
-                            onPressed: () {},
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+              Header(),
+              About(),
+              Services(),
+              Portfolio(),
               Container(
+                width: double.infinity,
+                color: Colors.white,
                 child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Container(
                       margin: EdgeInsets.only(top: 24),
                       child: Text(
-                        "ABOUT",
+                        "TECH STACK",
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          color: Colors.black,
+                          color: AppColors.hexToColor('5D5D5D'),
                           fontFamily: 'Montserrat',
                           fontWeight: FontWeight.w600,
                           letterSpacing: 1.0,
@@ -259,39 +68,593 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                       ),
                     ),
-                    Container(
-                      margin: EdgeInsets.all(24),
-                      child: Text(
-                        "Mobile Developer with 7 years of experience helping tech companies and startups to create and grow their products.\nI build native and hybrid apps for iOS and Android, with a solid understanding of the full mobile development life cycle, from requirements and planning to development, release, and maintenance. Proactive and enthusiastic, constantly learning new emerging technologies and always chasing the latest trends of mobile development to produce innovative, beautiful and easy-to-use applications. I am used to applying efficient practices to achieve a clean, highly readable, and maintainable code.nI’m not only a professional with technical expertise but also a good problem solver, able to identify customer’s needs.",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: AppColors.hexToColor('494949'),
-                          fontFamily: 'Montserrat',
-                          height: 1.5,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 16,
+                  ],
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class Portfolio extends StatelessWidget {
+  const Portfolio({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.only(bottom: 24, left: 32, right: 32),
+      color: AppColors.hexToColor('F8F8F8'),
+      width: double.infinity,
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
+        children: <Widget>[
+          Container(
+            margin: EdgeInsets.only(top: 24),
+            child: Text(
+              "PORTFOLIO",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: AppColors.hexToColor('5D5D5D'),
+                fontFamily: 'Montserrat',
+                fontWeight: FontWeight.w600,
+                letterSpacing: 1.0,
+                fontSize: 40,
+              ),
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.only(top: 24),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Expanded(
+                  child: Container(
+                    margin: EdgeInsets.only(left: 32, right: 32),
+                    color: Colors.red,
+                    height: 400,
+                    child: Column(
+                      children: <Widget>[],
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    margin: EdgeInsets.only(right: 32),
+                    color: Colors.red,
+                    height: 400,
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    margin: EdgeInsets.only(right: 32),
+                    color: Colors.red,
+                    height: 400,
+                  ),
+                )
+              ],
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.only(top: 24),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Expanded(
+                  child: Container(
+                    margin: EdgeInsets.only(left: 32, right: 32),
+                    color: Colors.red,
+                    height: 400,
+                    child: Column(
+                      children: <Widget>[],
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    margin: EdgeInsets.only(right: 32),
+                    color: Colors.red,
+                    height: 400,
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    margin: EdgeInsets.only(right: 32),
+                    color: Colors.red,
+                    height: 400,
+                  ),
+                )
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class Services extends StatelessWidget {
+  const Services({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Wrap(
+      crossAxisAlignment: WrapCrossAlignment.center,
+      alignment: WrapAlignment.center,
+      children: <Widget>[
+        Container(
+          margin: EdgeInsets.only(top: 24),
+          child: Text(
+            "SERVICES",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: AppColors.hexToColor('5D5D5D'),
+              fontFamily: 'Montserrat',
+              fontWeight: FontWeight.w600,
+              letterSpacing: 1.0,
+              fontSize: 40,
+            ),
+          ),
+        ),
+        Container(
+          width: double.infinity,
+          alignment: Alignment.center,
+          margin: EdgeInsets.only(top: 22, bottom: 42, left: 42, right: 42),
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Expanded(
+                child: Container(
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Expanded(
+                        child: Column(
+                          children: <Widget>[
+                            Container(
+                              width: 150.0,
+                              height: 150.0,
+                              padding: const EdgeInsets.all(8.0),
+                              decoration: BoxDecoration(
+                                color: AppColors.hexToColor('F77947'),
+                                shape: BoxShape.circle,
+                              ),
+                              child: Icon(
+                                Icons.brush,
+                                size: 80,
+                                color: Colors.white,
+                              ),
+                            ),
+                            Container(
+                              //  color: Colors.red,
+                              margin: EdgeInsets.only(top: 12),
+                              child: Text(
+                                "UX Design",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: AppColors.hexToColor('5D5D5D'),
+                                  fontFamily: 'Montserrat',
+                                  fontWeight: FontWeight.w600,
+                                  letterSpacing: 1.0,
+                                  fontSize: 18,
+                                ),
+                              ),
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(top: 12, left: 32, right: 32),
+                              child: Text(
+                                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: AppColors.hexToColor('929292'),
+                                  fontFamily: 'Montserrat',
+                                  height: 1.5,
+                                  fontWeight: FontWeight.w500,
+                                  letterSpacing: 2.0,
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Expanded(
+                      child: Column(
+                        children: <Widget>[
+                          Container(
+                            width: 150.0,
+                            height: 150.0,
+                            padding: const EdgeInsets.all(8.0),
+                            decoration: BoxDecoration(
+                              color: AppColors.hexToColor('F77947'),
+                              shape: BoxShape.circle,
+                            ),
+                            child: Icon(
+                              Icons.phone_android,
+                              size: 80,
+                              color: Colors.white,
+                            ),
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(top: 12),
+                            child: Text(
+                              "Mobile App Development",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: AppColors.hexToColor('5D5D5D'),
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.w600,
+                                letterSpacing: 1.0,
+                                fontSize: 18,
+                              ),
+                            ),
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(top: 12, left: 32, right: 32),
+                            child: Text(
+                              "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: AppColors.hexToColor('929292'),
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.w500,
+                                height: 1.5,
+                                letterSpacing: 2.0,
+                                fontSize: 14,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ],
                 ),
               ),
+              Expanded(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Expanded(
+                      child: Column(
+                        children: <Widget>[
+                          Container(
+                            width: 150.0,
+                            height: 150.0,
+                            padding: const EdgeInsets.all(8.0),
+                            decoration: BoxDecoration(
+                              color: AppColors.hexToColor('F77947'),
+                              shape: BoxShape.circle,
+                            ),
+                            child: Icon(
+                              Icons.laptop,
+                              size: 80,
+                              color: Colors.white,
+                            ),
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(top: 12),
+                            child: Text(
+                              "Web Development",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: AppColors.hexToColor('5D5D5D'),
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.w600,
+                                letterSpacing: 1.0,
+                                fontSize: 18,
+                              ),
+                            ),
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(top: 12, left: 32, right: 32),
+                            child: Text(
+                              "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: AppColors.hexToColor('929292'),
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.w500,
+                                height: 1.5,
+                                letterSpacing: 1.0,
+                                fontSize: 14,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class About extends StatelessWidget {
+  const About({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: AppColors.hexToColor('F8F8F8'),
+      child: Column(
+        children: <Widget>[
+          Container(
+            margin: EdgeInsets.only(top: 24),
+            child: Text(
+              "ABOUT",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: AppColors.hexToColor('5D5D5D'),
+                fontFamily: 'Montserrat',
+                fontWeight: FontWeight.w600,
+                letterSpacing: 1.0,
+                fontSize: 40,
+              ),
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(left: 100, right: 100, top: 24, bottom: 24),
+            child: Text(
+              "Mobile Developer with 7 years of experience helping tech companies and startups to create and grow their products.\nI build native and hybrid apps for iOS and Android, with a solid understanding of the full mobile development life cycle, from requirements and planning to development, release, and maintenance.\n\nProactive and enthusiastic, constantly learning new emerging technologies and always chasing the latest trends of mobile development to produce innovative, beautiful and easy-to-use applications.\n\nI am used to applying efficient practices to achieve a clean, highly readable, and maintainable code.nI’m not only a professional with technical expertise but also a good problem solver, able to identify customer’s needs.",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: AppColors.hexToColor('929292'),
+                fontFamily: 'Montserrat',
+                height: 1.5,
+                fontWeight: FontWeight.w500,
+                fontSize: 16,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class Header extends StatelessWidget {
+  const Header({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      alignment: Alignment.center,
+      children: <Widget>[
+        Container(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: ExactAssetImage('assets/images/header-bg.png'),
+              fit: BoxFit.fill,
+            ),
+          ),
+          child: BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 2, sigmaY: 2),
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.black.withOpacity(0.2),
+              ),
+            ),
+          ),
+        ),
+        MenuSection(),
+        Positioned(
+          left: 0,
+          top: 0,
+          child: Container(
+            padding: EdgeInsets.all(24),
+            child: Text(
+              "Gonzalo Lopez",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.white,
+                fontFamily: 'Kaushanscript',
+                fontWeight: FontWeight.w400,
+                fontStyle: FontStyle.italic,
+                letterSpacing: 1.0,
+                fontSize: 22,
+              ),
+            ),
+          ),
+        ),
+        Positioned(
+          left: 0,
+          right: 0,
+          child: Column(
+            children: <Widget>[
               Container(
-                margin: EdgeInsets.only(top: 24),
+                margin: EdgeInsets.only(top: 42),
+                width: 140.0,
+                height: 140.0,
+                padding: const EdgeInsets.all(8.0),
+                decoration: BoxDecoration(
+                  color: AppColors.hexToColor('EFF4F6'),
+                  shape: BoxShape.circle,
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(126),
+                  child: Image.asset(
+                    'assets/images/profile_blur.png',
+                    fit: BoxFit.fitWidth,
+                  ),
+                ),
+              ),
+              Container(
+                width: double.infinity,
+                padding: EdgeInsets.only(right: 42, top: 18),
                 child: Text(
-                  "SERVICES",
+                  "Welcome To My Studio!",
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: Colors.black,
-                    fontFamily: 'Montserrat',
-                    fontWeight: FontWeight.w600,
+                    color: Colors.white,
+                    fontFamily: 'Kaushanscript',
+                    fontWeight: FontWeight.w400,
+                    fontStyle: FontStyle.italic,
                     letterSpacing: 1.0,
                     fontSize: 40,
                   ),
                 ),
               ),
+              Container(
+                padding: EdgeInsets.only(top: 24),
+                child: Text(
+                  "I'LL DEVELOP YOUR\nNEXT MOBILE APP",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: 'Montserrat',
+                    fontWeight: FontWeight.w600,
+                    letterSpacing: 1.0,
+                    fontSize: 70,
+                  ),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 42),
+                child: RaisedButton(
+                  color: AppColors.hexToColor('F77947'),
+                  child: Container(
+                    padding: EdgeInsets.all(22),
+                    child: Text(
+                      "TELL ME MORE",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.w600,
+                        letterSpacing: 1.0,
+                        fontSize: 22,
+                      ),
+                    ),
+                  ),
+                  onPressed: () {},
+                ),
+              )
             ],
           ),
+        ),
+      ],
+    );
+  }
+}
+
+class MenuSection extends StatelessWidget {
+  const MenuSection({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+      right: 0,
+      top: 0,
+      child: Container(
+        padding: EdgeInsets.all(12),
+        margin: EdgeInsets.only(right: 32),
+        child: Row(
+          children: <Widget>[
+            Container(
+              padding: EdgeInsets.all(16),
+              child: Text(
+                "ABOUT",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontFamily: 'Montserrat',
+                  fontWeight: FontWeight.w500,
+                  letterSpacing: 1.0,
+                  fontSize: 16,
+                ),
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.all(16),
+              child: Text(
+                "SERVICES",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontFamily: 'Montserrat',
+                  fontWeight: FontWeight.w500,
+                  letterSpacing: 1.0,
+                  fontSize: 16,
+                ),
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.all(16),
+              child: Text(
+                "PORTFOLIO",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontFamily: 'Montserrat',
+                  fontWeight: FontWeight.w500,
+                  letterSpacing: 1.0,
+                  fontSize: 16,
+                ),
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.all(16),
+              child: Text(
+                "TECH STACK",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontFamily: 'Montserrat',
+                  fontWeight: FontWeight.w500,
+                  letterSpacing: 1.0,
+                  fontSize: 16,
+                ),
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.all(16),
+              child: Text(
+                "CONTACT",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontFamily: 'Montserrat',
+                  fontWeight: FontWeight.w500,
+                  letterSpacing: 1.0,
+                  fontSize: 16,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
