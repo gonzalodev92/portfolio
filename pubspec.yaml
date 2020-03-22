@@ -43,3 +43,7 @@ flutter:
           weight: 600
         - asset: assets/fonts/montserrat/montserrat-black.ttf
           weight: 700
+    - family: Kaushanscript
+      fonts:
+        - asset: assets/fonts/kaushanscript-regular.ttf
+          weight: 400
