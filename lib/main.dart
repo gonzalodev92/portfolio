@@ -46,34 +46,90 @@ class _MyHomePageState extends State<MyHomePage> {
               About(),
               Services(),
               Portfolio(),
-              Container(
-                width: double.infinity,
-                color: Colors.white,
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Container(
-                      margin: EdgeInsets.only(top: 24),
-                      child: Text(
-                        "TECH STACK",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: AppColors.hexToColor('5D5D5D'),
-                          fontFamily: 'Montserrat',
-                          fontWeight: FontWeight.w600,
-                          letterSpacing: 1.0,
-                          fontSize: 40,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              )
+              TechStack(),
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class TechStack extends StatelessWidget {
+  const TechStack({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      color: Colors.white,
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Container(
+            margin: EdgeInsets.only(top: 24),
+            child: Text(
+              "TECH STACK",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: AppColors.hexToColor('5D5D5D'),
+                fontFamily: 'Montserrat',
+                fontWeight: FontWeight.w600,
+                letterSpacing: 1.0,
+                fontSize: 40,
+              ),
+            ),
+          ),
+          Container(
+            //  color: Colors.blue,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                  child: Image.asset(
+                    'assets/images/ios.png',
+                    width: 250,
+                    height: 100,
+                  ),
+                ),
+                Container(
+                  child: Image.asset(
+                    'assets/images/android.png',
+                    width: 200,
+                    height: 150,
+                  ),
+                ),
+                Container(
+                  child: Image.asset(
+                    'assets/images/flutter.png',
+                    width: 250,
+                    height: 230,
+                  ),
+                ),
+                Container(
+//color: Colors.red,
+                  child: Image.asset(
+                    'assets/images/java.png',
+                    width: 160,
+                    height: 140,
+                  ),
+                ),
+                Container(
+                  //  color: Colors.blue,
+                  child: Image.asset(
+                    'assets/images/firebase.png',
+                    width: 320,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -455,7 +511,7 @@ class Header extends StatelessWidget {
           height: MediaQuery.of(context).size.height,
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: ExactAssetImage('assets/images/header-bg.png'),
+              image: ExactAssetImage('assets/images/header.png'),
               fit: BoxFit.fill,
             ),
           ),
