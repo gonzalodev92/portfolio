@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:gonzalolopez_webpage/app_edittext.dart';
 import 'package:gonzalolopez_webpage/styles.dart';
 
 void main() {
@@ -47,10 +48,364 @@ class _MyHomePageState extends State<MyHomePage> {
               Services(),
               Portfolio(),
               TechStack(),
+              Contact(),
+              Social(),
             ],
           ),
         ),
       ),
+    );
+  }
+}
+
+class Social extends StatelessWidget {
+  const Social({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      // width: double.infinity,
+      alignment: Alignment.center,
+      padding: EdgeInsets.all(24),
+      child: Row(
+        mainAxisSize: MainAxisSize.max,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Container(
+            margin: EdgeInsets.only(right: 12),
+            child: Container(
+              alignment: Alignment.center,
+              width: 50.0,
+              height: 50.0,
+              padding: const EdgeInsets.all(8.0),
+              decoration: BoxDecoration(
+                color: AppColors.hexToColor('212529'),
+                shape: BoxShape.circle,
+              ),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Image.asset(
+                    'assets/images/behance.png',
+                    colorBlendMode: BlendMode.color,
+                    height: 16,
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(right: 12),
+            child: Container(
+              alignment: Alignment.center,
+              width: 50.0,
+              height: 50.0,
+              padding: const EdgeInsets.all(8.0),
+              decoration: BoxDecoration(
+                color: AppColors.hexToColor('212529'),
+                shape: BoxShape.circle,
+              ),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Image.asset(
+                    'assets/images/linkedin.png',
+                    colorBlendMode: BlendMode.color,
+                    height: 22,
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(right: 12),
+            child: Container(
+              width: 50.0,
+              height: 50.0,
+              alignment: Alignment.center,
+              padding: const EdgeInsets.all(8.0),
+              decoration: BoxDecoration(
+                color: AppColors.hexToColor('212529'),
+                shape: BoxShape.circle,
+              ),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Image.asset(
+                    'assets/images/github.png',
+                    height: 30,
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Container(
+            width: 50.0,
+            height: 50.0,
+            alignment: Alignment.center,
+            padding: const EdgeInsets.all(8.0),
+            decoration: BoxDecoration(
+              color: AppColors.hexToColor('212529'),
+              shape: BoxShape.circle,
+            ),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Image.asset(
+                  'assets/images/whatsapp.png',
+                  height: 30,
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class Contact extends StatelessWidget {
+  const Contact({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      alignment: Alignment.center,
+      children: <Widget>[
+        Image.asset(
+          'assets/images/map2.png',
+          width: double.infinity,
+          fit: BoxFit.fitWidth,
+        ),
+        Center(
+          child: Container(
+            width: 500,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withAlpha(800),
+                  blurRadius: 20.0,
+                  spreadRadius: 5.0,
+                ),
+              ],
+              borderRadius: BorderRadius.all(
+                Radius.circular(22),
+              ),
+            ),
+            child: Container(
+              padding: EdgeInsets.all(22),
+              child: Column(
+                children: <Widget>[
+                  Container(
+                    margin: EdgeInsets.only(top: 24),
+                    child: Text(
+                      "CONTACT",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: AppColors.hexToColor('5D5D5D'),
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.w600,
+                        letterSpacing: 1.0,
+                        fontSize: 40,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(top: 16),
+                    child: TextFormField(
+                      style: TextStyle(
+                        color: AppColors.hexToColor('929292'),
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.w500,
+                        fontSize: 14,
+                      ),
+                      decoration: InputDecoration(
+                        prefixIcon: Icon(
+                          Icons.person,
+                          color: AppColors.hexToColor('5D5D5D'),
+                        ),
+                        labelText: "Name",
+                        fillColor: Colors.white,
+                        labelStyle: TextStyle(
+                          color: AppColors.hexToColor('5D5D5D'),
+                          fontFamily: 'Montserrat',
+                          fontWeight: FontWeight.w500,
+                          fontSize: 14,
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(25.0),
+                          borderSide: BorderSide(
+                            color: AppColors.hexToColor('5D5D5D'),
+                            width: 2.0,
+                          ),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(25.0),
+                          borderSide: BorderSide(
+                            color: AppColors.hexToColor('5D5D5D'),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(top: 12),
+                    child: TextFormField(
+                      style: TextStyle(
+                        color: AppColors.hexToColor('929292'),
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.w500,
+                        fontSize: 14,
+                      ),
+                      decoration: InputDecoration(
+                        prefixIcon: Icon(
+                          Icons.email,
+                          color: AppColors.hexToColor('5D5D5D'),
+                        ),
+                        labelText: "Email",
+                        fillColor: Colors.white,
+                        labelStyle: TextStyle(
+                          color: AppColors.hexToColor('5D5D5D'),
+                          fontFamily: 'Montserrat',
+                          fontWeight: FontWeight.w500,
+                          fontSize: 14,
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(25.0),
+                          borderSide: BorderSide(
+                            color: AppColors.hexToColor('5D5D5D'),
+                            width: 2.0,
+                          ),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(25.0),
+                          borderSide: BorderSide(
+                            color: AppColors.hexToColor('5D5D5D'),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(top: 12),
+                    child: TextFormField(
+                      style: TextStyle(
+                        color: AppColors.hexToColor('929292'),
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.w500,
+                        fontSize: 14,
+                      ),
+                      decoration: InputDecoration(
+                        prefixIcon: Icon(
+                          Icons.phone,
+                          color: AppColors.hexToColor('5D5D5D'),
+                        ),
+                        labelText: "Phone",
+                        fillColor: Colors.white,
+                        labelStyle: TextStyle(
+                          color: AppColors.hexToColor('5D5D5D'),
+                          fontFamily: 'Montserrat',
+                          fontWeight: FontWeight.w500,
+                          fontSize: 14,
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(25.0),
+                          borderSide: BorderSide(
+                            color: AppColors.hexToColor('5D5D5D'),
+                            width: 2.0,
+                          ),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(25.0),
+                          borderSide: BorderSide(
+                            color: AppColors.hexToColor('5D5D5D'),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(top: 12),
+                    child: TextFormField(
+                      minLines: 1,
+                      maxLines: 10,
+                      style: TextStyle(
+                        color: AppColors.hexToColor('929292'),
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.w500,
+                        fontSize: 14,
+                      ),
+                      decoration: InputDecoration(
+                        prefixIcon: Icon(
+                          Icons.message,
+                          color: AppColors.hexToColor('5D5D5D'),
+                        ),
+                        labelText: "Message",
+                        fillColor: Colors.white,
+                        labelStyle: TextStyle(
+                          color: AppColors.hexToColor('5D5D5D'),
+                          fontFamily: 'Montserrat',
+                          fontWeight: FontWeight.w500,
+                          fontSize: 14,
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(25.0),
+                          borderSide: BorderSide(
+                            color: AppColors.hexToColor('5D5D5D'),
+                            width: 2.0,
+                          ),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(25.0),
+                          borderSide: BorderSide(
+                            color: AppColors.hexToColor('5D5D5D'),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(top: 16),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.all(Radius.circular(24)),
+                      child: Container(
+                        child: RaisedButton(
+                          color: AppColors.hexToColor('F77947'),
+                          child: Container(
+                            padding: EdgeInsets.all(22),
+                            child: Text(
+                              "SEND MESSAGE",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.w600,
+                                letterSpacing: 1.0,
+                                fontSize: 16,
+                              ),
+                            ),
+                          ),
+                          onPressed: () {},
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
+        )
+      ],
     );
   }
 }
@@ -85,7 +440,6 @@ class TechStack extends StatelessWidget {
             ),
           ),
           Container(
-            //  color: Colors.blue,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -112,7 +466,6 @@ class TechStack extends StatelessWidget {
                   ),
                 ),
                 Container(
-//color: Colors.red,
                   child: Image.asset(
                     'assets/images/java.png',
                     width: 160,
@@ -592,29 +945,34 @@ class Header extends StatelessWidget {
                     fontFamily: 'Montserrat',
                     fontWeight: FontWeight.w600,
                     letterSpacing: 1.0,
-                    fontSize: 70,
+                    fontSize: 60,
                   ),
                 ),
               ),
               Container(
                 margin: EdgeInsets.only(top: 42),
-                child: RaisedButton(
-                  color: AppColors.hexToColor('F77947'),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.all(Radius.circular(24)),
                   child: Container(
-                    padding: EdgeInsets.all(22),
-                    child: Text(
-                      "TELL ME MORE",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontFamily: 'Montserrat',
-                        fontWeight: FontWeight.w600,
-                        letterSpacing: 1.0,
-                        fontSize: 22,
+                    child: RaisedButton(
+                      color: AppColors.hexToColor('F77947'),
+                      child: Container(
+                        padding: EdgeInsets.all(22),
+                        child: Text(
+                          "TELL ME MORE",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: 'Montserrat',
+                            fontWeight: FontWeight.w600,
+                            letterSpacing: 1.0,
+                            fontSize: 22,
+                          ),
+                        ),
                       ),
+                      onPressed: () {},
                     ),
                   ),
-                  onPressed: () {},
                 ),
               )
             ],
@@ -686,20 +1044,6 @@ class MenuSection extends StatelessWidget {
               padding: EdgeInsets.all(16),
               child: Text(
                 "TECH STACK",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontFamily: 'Montserrat',
-                  fontWeight: FontWeight.w500,
-                  letterSpacing: 1.0,
-                  fontSize: 16,
-                ),
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.all(16),
-              child: Text(
-                "CONTACT",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.white,
