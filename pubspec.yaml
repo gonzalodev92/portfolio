@@ -21,6 +21,7 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/images/portfolio/
 
   fonts:
     - family: AvenirNext

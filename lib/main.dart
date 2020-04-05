@@ -1,7 +1,6 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:gonzalolopez_webpage/app_edittext.dart';
 import 'package:gonzalolopez_webpage/styles.dart';
 
 void main() {
@@ -525,25 +524,28 @@ class Portfolio extends StatelessWidget {
                 Expanded(
                   child: Container(
                     margin: EdgeInsets.only(left: 32, right: 32),
-                    color: Colors.red,
                     height: 400,
-                    child: Column(
-                      children: <Widget>[],
+                    child: Image.asset('assets/images/portfolio/sidedrawer.png'),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    margin: EdgeInsets.only(right: 32),
+                    height: 400,
+                    child: Image.asset(
+                      'assets/images/portfolio/apperto.png',
+                      fit: BoxFit.fitWidth,
                     ),
                   ),
                 ),
                 Expanded(
                   child: Container(
                     margin: EdgeInsets.only(right: 32),
-                    color: Colors.red,
                     height: 400,
-                  ),
-                ),
-                Expanded(
-                  child: Container(
-                    margin: EdgeInsets.only(right: 32),
-                    color: Colors.red,
-                    height: 400,
+                    child: Image.asset(
+                      'assets/images/portfolio/zeus_care.png',
+                      fit: BoxFit.fitWidth,
+                    ),
                   ),
                 )
               ],
@@ -558,25 +560,28 @@ class Portfolio extends StatelessWidget {
                 Expanded(
                   child: Container(
                     margin: EdgeInsets.only(left: 32, right: 32),
-                    color: Colors.red,
                     height: 400,
-                    child: Column(
-                      children: <Widget>[],
+                    child: Image.asset('assets/images/portfolio/shared_space.png'),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    margin: EdgeInsets.only(right: 32),
+                    height: 400,
+                    child: Image.asset(
+                      'assets/images/portfolio/infinity.png',
+                      fit: BoxFit.fill,
                     ),
                   ),
                 ),
                 Expanded(
                   child: Container(
                     margin: EdgeInsets.only(right: 32),
-                    color: Colors.red,
                     height: 400,
-                  ),
-                ),
-                Expanded(
-                  child: Container(
-                    margin: EdgeInsets.only(right: 32),
-                    color: Colors.red,
-                    height: 400,
+                    child: Image.asset(
+                      'assets/images/portfolio/serenisima.png',
+                      fit: BoxFit.fill,
+                    ),
                   ),
                 )
               ],
@@ -1044,6 +1049,20 @@ class MenuSection extends StatelessWidget {
               padding: EdgeInsets.all(16),
               child: Text(
                 "TECH STACK",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontFamily: 'Montserrat',
+                  fontWeight: FontWeight.w500,
+                  letterSpacing: 1.0,
+                  fontSize: 16,
+                ),
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.all(16),
+              child: Text(
+                "CONTACT",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.white,
