@@ -15,6 +15,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_open_whatsapp: ^0.1.2
 
 flutter:
   uses-material-design: true

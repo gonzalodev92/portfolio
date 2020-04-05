@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:gonzalolopez_webpage/styles.dart';
+import 'package:flutter_open_whatsapp/flutter_open_whatsapp.dart';
 
 void main() {
   runApp(MyApp());
@@ -144,24 +145,29 @@ class Social extends StatelessWidget {
               ),
             ),
           ),
-          Container(
-            width: 50.0,
-            height: 50.0,
-            alignment: Alignment.center,
-            padding: const EdgeInsets.all(8.0),
-            decoration: BoxDecoration(
-              color: AppColors.hexToColor('212529'),
-              shape: BoxShape.circle,
-            ),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Image.asset(
-                  'assets/images/whatsapp.png',
-                  height: 30,
-                ),
-              ],
+          InkWell(
+            onTap: () {
+              FlutterOpenWhatsapp.sendSingleMessage("918179015345", "Hello");
+            },
+            child: Container(
+              width: 50.0,
+              height: 50.0,
+              alignment: Alignment.center,
+              padding: const EdgeInsets.all(8.0),
+              decoration: BoxDecoration(
+                color: AppColors.hexToColor('212529'),
+                shape: BoxShape.circle,
+              ),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Image.asset(
+                    'assets/images/whatsapp.png',
+                    height: 30,
+                  ),
+                ],
+              ),
             ),
           ),
         ],
@@ -487,19 +493,28 @@ class TechStack extends StatelessWidget {
   }
 }
 
-class Portfolio extends StatelessWidget {
+class Portfolio extends StatefulWidget {
   const Portfolio({
     Key key,
   }) : super(key: key);
 
   @override
+  _PortfolioState createState() => _PortfolioState();
+}
+
+class _PortfolioState extends State<Portfolio> {
+  bool onHoverSidedrawer = false;
+  bool onHoverApperto = false;
+  bool onHoverZeus = false;
+  bool onHoverInfinity = false;
+  bool onHoverSharedSpace = false;
+  bool onHoverSerenisima = false;
+
+  @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(bottom: 24, left: 32, right: 32),
       color: AppColors.hexToColor('F8F8F8'),
-      width: double.infinity,
       child: Column(
-        mainAxisSize: MainAxisSize.max,
         children: <Widget>[
           Container(
             margin: EdgeInsets.only(top: 24),
@@ -516,77 +531,211 @@ class Portfolio extends StatelessWidget {
             ),
           ),
           Container(
-            padding: EdgeInsets.only(top: 24),
+            padding: EdgeInsets.only(bottom: 24, left: 40, right: 40),
+            width: double.infinity,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Expanded(
-                  child: Container(
-                    margin: EdgeInsets.only(left: 32, right: 32),
-                    height: 400,
-                    child: Image.asset('assets/images/portfolio/sidedrawer.png'),
+                CircleAvatar(
+                  backgroundColor: AppColors.hexToColor("F77947"),
+                  radius: 32,
+                  child: Icon(
+                    Icons.arrow_back_ios,
+                    color: Colors.white,
+                    size: 24,
                   ),
                 ),
                 Expanded(
-                  child: Container(
-                    margin: EdgeInsets.only(right: 32),
-                    height: 400,
-                    child: Image.asset(
-                      'assets/images/portfolio/apperto.png',
-                      fit: BoxFit.fitWidth,
-                    ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: <Widget>[
+                      Container(
+                        padding: EdgeInsets.only(top: 24),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Expanded(
+                              child: Container(
+                                margin: EdgeInsets.only(left: 32, right: 32),
+                                child: ItemPortfolioWidget(
+                                  onHover: (onHover) {
+                                    onHoverSidedrawer = onHover;
+                                    setState(() {});
+                                  },
+                                  isOnHover: onHoverSidedrawer,
+                                  onTap: () {},
+                                  hexBackgroundColour: "FF9502",
+                                  url: "assets/images/portfolio/sidedrawer.png",
+                                  fit: BoxFit.contain,
+                                ),
+                              ),
+                            ),
+                            Expanded(
+                              child: Container(
+                                margin: EdgeInsets.only(right: 32),
+                                child: ItemPortfolioWidget(
+                                  onHover: (onHover) {
+                                    onHoverApperto = onHover;
+                                    setState(() {});
+                                  },
+                                  isOnHover: onHoverApperto,
+                                  fit: BoxFit.contain,
+                                  onTap: () {},
+                                  hexBackgroundColour: "387AFF",
+                                  url: 'assets/images/portfolio/apperto.png',
+                                ),
+                              ),
+                            ),
+                            Expanded(
+                              child: Container(
+                                margin: EdgeInsets.only(right: 32),
+                                child: ItemPortfolioWidget(
+                                  onHover: (onHover) {
+                                    onHoverZeus = onHover;
+                                    setState(() {});
+                                  },
+                                  fit: BoxFit.fill,
+                                  isOnHover: onHoverZeus,
+                                  onTap: () {},
+                                  hexBackgroundColour: "387AFF",
+                                  url: 'assets/images/portfolio/zeus_care.png',
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        padding: EdgeInsets.only(top: 24),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Expanded(
+                              child: Container(
+                                margin: EdgeInsets.only(left: 32, right: 32),
+                                child: ItemPortfolioWidget(
+                                  onHover: (onHover) {
+                                    onHoverSharedSpace = onHover;
+                                    setState(() {});
+                                  },
+                                  isOnHover: onHoverSharedSpace,
+                                  onTap: () {},
+                                  fit: BoxFit.fill,
+                                  hexBackgroundColour: "387AFF",
+                                  url: 'assets/images/portfolio/shared_space.png',
+                                ),
+                              ),
+                            ),
+                            Expanded(
+                              child: Container(
+                                margin: EdgeInsets.only(right: 32),
+                                child: ItemPortfolioWidget(
+                                  onHover: (onHover) {
+                                    onHoverInfinity = onHover;
+                                    setState(() {});
+                                  },
+                                  isOnHover: onHoverInfinity,
+                                  onTap: () {},
+                                  hexBackgroundColour: "68D2DF",
+                                  fit: BoxFit.contain,
+                                  url: 'assets/images/portfolio/infinity.png',
+                                ),
+                              ),
+                            ),
+                            Expanded(
+                              child: Container(
+                                margin: EdgeInsets.only(right: 32),
+                                child: ItemPortfolioWidget(
+                                  onHover: (onHover) {
+                                    onHoverSerenisima = onHover;
+                                    setState(() {});
+                                  },
+                                  isOnHover: onHoverSerenisima,
+                                  onTap: () {},
+                                  fit: BoxFit.contain,
+                                  hexBackgroundColour: "22A86A",
+                                  url: 'assets/images/portfolio/serenisima.png',
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      )
+                    ],
                   ),
                 ),
-                Expanded(
-                  child: Container(
-                    margin: EdgeInsets.only(right: 32),
-                    height: 400,
-                    child: Image.asset(
-                      'assets/images/portfolio/zeus_care.png',
-                      fit: BoxFit.fitWidth,
-                    ),
+                CircleAvatar(
+                  backgroundColor: AppColors.hexToColor("F77947"),
+                  radius: 32,
+                  child: Icon(
+                    Icons.arrow_forward_ios,
+                    color: Colors.white,
+                    size: 24,
                   ),
-                )
+                ),
               ],
             ),
           ),
+        ],
+      ),
+    );
+  }
+}
+
+class ItemPortfolioWidget extends StatefulWidget {
+  const ItemPortfolioWidget({
+    Key key,
+    @required this.url,
+    @required this.onTap,
+    @required this.hexBackgroundColour,
+    @required this.onHover,
+    @required this.isOnHover,
+    @required this.fit,
+  }) : super(key: key);
+
+  final String url;
+  final VoidCallback onTap;
+  final String hexBackgroundColour;
+  final Function(bool) onHover;
+  final bool isOnHover;
+  final BoxFit fit;
+
+  @override
+  _ItemPortfolioWidgetState createState() => _ItemPortfolioWidgetState();
+}
+
+class _ItemPortfolioWidgetState extends State<ItemPortfolioWidget> {
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {},
+      onHover: widget.onHover,
+      child: Stack(
+        children: <Widget>[
           Container(
-            padding: EdgeInsets.only(top: 24),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Expanded(
-                  child: Container(
-                    margin: EdgeInsets.only(left: 32, right: 32),
-                    height: 400,
-                    child: Image.asset('assets/images/portfolio/shared_space.png'),
-                  ),
-                ),
-                Expanded(
-                  child: Container(
-                    margin: EdgeInsets.only(right: 32),
-                    height: 400,
-                    child: Image.asset(
-                      'assets/images/portfolio/infinity.png',
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: Container(
-                    margin: EdgeInsets.only(right: 32),
-                    height: 400,
-                    child: Image.asset(
-                      'assets/images/portfolio/serenisima.png',
-                      fit: BoxFit.fill,
-                    ),
+            color: AppColors.hexToColor(widget.hexBackgroundColour),
+            height: 400,
+            child: Image.asset(
+              widget.url,
+              fit: widget.fit,
+              width: double.infinity,
+            ),
+          ),
+          (widget.isOnHover)
+              ? Container(
+                  width: double.infinity,
+                  color: Colors.black.withAlpha(690),
+                  height: 400,
+                  child: Icon(
+                    Icons.add,
+                    size: 130,
+                    color: Colors.white,
                   ),
                 )
-              ],
-            ),
-          )
+              : Container(),
         ],
       ),
     );
