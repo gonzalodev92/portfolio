@@ -32,6 +32,15 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  PageController pageController;
+  int indexPage = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    pageController = PageController();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +55,104 @@ class _MyHomePageState extends State<MyHomePage> {
               Header(),
               About(),
               Services(),
-              Portfolio(),
+              Container(
+                color: AppColors.hexToColor('F8F8F8'),
+                child: Column(
+                  children: <Widget>[
+                    Container(
+                      margin: EdgeInsets.only(top: 24),
+                      child: Text(
+                        "PORTFOLIO",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: AppColors.hexToColor('5D5D5D'),
+                          fontFamily: 'Montserrat',
+                          fontWeight: FontWeight.w600,
+                          letterSpacing: 1.0,
+                          fontSize: 40,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      //   color: Colors.red,
+                      child: Row(
+                        children: <Widget>[
+                          Opacity(
+                            opacity: (indexPage > 0) ? 1.0 : 0.0,
+                            child: Container(
+                              padding: EdgeInsets.only(left: 24, right: 24),
+                              child: InkWell(
+                                onTap: () {
+                                  pageController.previousPage(
+                                    duration: Duration(seconds: 1),
+                                    curve: Curves.fastOutSlowIn,
+                                  );
+                                },
+                                child: Row(
+                                  children: <Widget>[
+                                    CircleAvatar(
+                                      backgroundColor: AppColors.hexToColor("F77947"),
+                                      radius: 32,
+                                      child: Icon(
+                                        Icons.arrow_back_ios,
+                                        color: Colors.white,
+                                        size: 24,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            child: Container(
+                              //color: Colors.blue,
+                              height: 880,
+                              child: PageView.builder(
+                                physics: NeverScrollableScrollPhysics(),
+                                itemCount: 2,
+                                onPageChanged: (index) {
+                                  indexPage = index;
+                                  setState(() {});
+                                },
+                                controller: pageController,
+                                itemBuilder: (BuildContext context, int index) {
+                                  return (index == 0) ? PortfolioPageOne() : PortfolioPageTwo();
+                                },
+                              ),
+                            ),
+                          ),
+                          Container(
+                            padding: EdgeInsets.only(left: 24, right: 24),
+                            child: Row(
+                              children: <Widget>[
+                                InkWell(
+                                  onTap: () {
+                                    pageController.nextPage(
+                                      duration: Duration(seconds: 1),
+                                      curve: Curves.fastOutSlowIn,
+                                    );
+                                  },
+                                  child: CircleAvatar(
+                                    backgroundColor: AppColors.hexToColor("F77947"),
+                                    radius: 32,
+                                    child: Icon(
+                                      Icons.arrow_forward_ios,
+                                      color: Colors.white,
+                                      size: 24,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              // Portfolio(),
               TechStack(),
               Contact(),
               Social(),
@@ -493,16 +599,16 @@ class TechStack extends StatelessWidget {
   }
 }
 
-class Portfolio extends StatefulWidget {
-  const Portfolio({
+class PortfolioPageTwo extends StatefulWidget {
+  const PortfolioPageTwo({
     Key key,
   }) : super(key: key);
 
   @override
-  _PortfolioState createState() => _PortfolioState();
+  _PortfolioPageTwoState createState() => _PortfolioPageTwoState();
 }
 
-class _PortfolioState extends State<Portfolio> {
+class _PortfolioPageTwoState extends State<PortfolioPageTwo> {
   bool onHoverSidedrawer = false;
   bool onHoverApperto = false;
   bool onHoverZeus = false;
@@ -517,168 +623,272 @@ class _PortfolioState extends State<Portfolio> {
       child: Column(
         children: <Widget>[
           Container(
-            margin: EdgeInsets.only(top: 24),
-            child: Text(
-              "PORTFOLIO",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: AppColors.hexToColor('5D5D5D'),
-                fontFamily: 'Montserrat',
-                fontWeight: FontWeight.w600,
-                letterSpacing: 1.0,
-                fontSize: 40,
-              ),
+            padding: EdgeInsets.only(bottom: 24),
+            width: double.infinity,
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: <Widget>[
+                Container(
+                  padding: EdgeInsets.only(top: 24),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Expanded(
+                        child: Container(
+                          margin: EdgeInsets.only(left: 32, right: 32),
+                          child: ItemPortfolioWidget(
+                            onHover: (onHover) {
+                              onHoverSidedrawer = onHover;
+                              setState(() {});
+                            },
+                            isOnHover: onHoverSidedrawer,
+                            onTap: () {},
+                            hexBackgroundColour: "FFFFFF",
+                            url: "assets/images/portfolio/resimple.png",
+                            fit: BoxFit.contain,
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: Container(
+                          margin: EdgeInsets.only(right: 32),
+                          child: ItemPortfolioWidget(
+                            onHover: (onHover) {
+                              onHoverApperto = onHover;
+                              setState(() {});
+                            },
+                            isOnHover: onHoverApperto,
+                            fit: BoxFit.contain,
+                            onTap: () {},
+                            hexBackgroundColour: "141720",
+                            url: 'assets/images/portfolio/emasters.png',
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: Container(
+                          margin: EdgeInsets.only(right: 32),
+                          child: ItemPortfolioWidget(
+                            onHover: (onHover) {
+                              onHoverZeus = onHover;
+                              setState(() {});
+                            },
+                            fit: BoxFit.contain,
+                            isOnHover: onHoverZeus,
+                            onTap: () {},
+                            hexBackgroundColour: "FFC901",
+                            url: 'assets/images/portfolio/infinito.png',
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.only(top: 24),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Expanded(
+                        child: Container(
+                          margin: EdgeInsets.only(left: 32, right: 32),
+                          child: ItemPortfolioWidget(
+                            onHover: (onHover) {
+                              onHoverSharedSpace = onHover;
+                              setState(() {});
+                            },
+                            isOnHover: onHoverSharedSpace,
+                            onTap: () {},
+                            fit: BoxFit.contain,
+                            hexBackgroundColour: "0D0D0D",
+                            url: 'assets/images/portfolio/cheverry.png',
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: Container(
+                          margin: EdgeInsets.only(right: 32),
+                          child: ItemPortfolioWidget(
+                            onHover: (onHover) {
+                              onHoverInfinity = onHover;
+                              setState(() {});
+                            },
+                            isOnHover: onHoverInfinity,
+                            onTap: () {},
+                            hexBackgroundColour: "FFFFFF",
+                            fit: BoxFit.fill,
+                            url: 'assets/images/portfolio/san_nicolas.png',
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: Container(
+                          margin: EdgeInsets.only(right: 32),
+                          child: ItemPortfolioWidget(
+                            onHover: (onHover) {
+                              onHoverSerenisima = onHover;
+                              setState(() {});
+                            },
+                            isOnHover: onHoverSerenisima,
+                            onTap: () {},
+                            fit: BoxFit.contain,
+                            hexBackgroundColour: "22A86A",
+                            url: 'assets/images/portfolio/serenisima.png',
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+              ],
             ),
           ),
+        ],
+      ),
+    );
+  }
+}
+
+class PortfolioPageOne extends StatefulWidget {
+  const PortfolioPageOne({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  _PortfolioPageOneState createState() => _PortfolioPageOneState();
+}
+
+class _PortfolioPageOneState extends State<PortfolioPageOne> {
+  bool onHoverSidedrawer = false;
+  bool onHoverApperto = false;
+  bool onHoverZeus = false;
+  bool onHoverInfinity = false;
+  bool onHoverSharedSpace = false;
+  bool onHoverSerenisima = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
+        children: <Widget>[
           Container(
-            padding: EdgeInsets.only(bottom: 24, left: 40, right: 40),
-            width: double.infinity,
+            padding: EdgeInsets.only(top: 24),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                CircleAvatar(
-                  backgroundColor: AppColors.hexToColor("F77947"),
-                  radius: 32,
-                  child: Icon(
-                    Icons.arrow_back_ios,
-                    color: Colors.white,
-                    size: 24,
+                Expanded(
+                  child: Container(
+                    margin: EdgeInsets.only(left: 32, right: 32),
+                    child: ItemPortfolioWidget(
+                      onHover: (onHover) {
+                        onHoverSidedrawer = onHover;
+                        setState(() {});
+                      },
+                      isOnHover: onHoverSidedrawer,
+                      onTap: () {},
+                      hexBackgroundColour: "FF9502",
+                      url: "assets/images/portfolio/sidedrawer.png",
+                      fit: BoxFit.contain,
+                    ),
                   ),
                 ),
                 Expanded(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    children: <Widget>[
-                      Container(
-                        padding: EdgeInsets.only(top: 24),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Expanded(
-                              child: Container(
-                                margin: EdgeInsets.only(left: 32, right: 32),
-                                child: ItemPortfolioWidget(
-                                  onHover: (onHover) {
-                                    onHoverSidedrawer = onHover;
-                                    setState(() {});
-                                  },
-                                  isOnHover: onHoverSidedrawer,
-                                  onTap: () {},
-                                  hexBackgroundColour: "FF9502",
-                                  url: "assets/images/portfolio/sidedrawer.png",
-                                  fit: BoxFit.contain,
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: Container(
-                                margin: EdgeInsets.only(right: 32),
-                                child: ItemPortfolioWidget(
-                                  onHover: (onHover) {
-                                    onHoverApperto = onHover;
-                                    setState(() {});
-                                  },
-                                  isOnHover: onHoverApperto,
-                                  fit: BoxFit.contain,
-                                  onTap: () {},
-                                  hexBackgroundColour: "387AFF",
-                                  url: 'assets/images/portfolio/apperto.png',
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: Container(
-                                margin: EdgeInsets.only(right: 32),
-                                child: ItemPortfolioWidget(
-                                  onHover: (onHover) {
-                                    onHoverZeus = onHover;
-                                    setState(() {});
-                                  },
-                                  fit: BoxFit.fill,
-                                  isOnHover: onHoverZeus,
-                                  onTap: () {},
-                                  hexBackgroundColour: "387AFF",
-                                  url: 'assets/images/portfolio/zeus_care.png',
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        padding: EdgeInsets.only(top: 24),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Expanded(
-                              child: Container(
-                                margin: EdgeInsets.only(left: 32, right: 32),
-                                child: ItemPortfolioWidget(
-                                  onHover: (onHover) {
-                                    onHoverSharedSpace = onHover;
-                                    setState(() {});
-                                  },
-                                  isOnHover: onHoverSharedSpace,
-                                  onTap: () {},
-                                  fit: BoxFit.contain,
-                                  hexBackgroundColour: "0FA5B7",
-                                  url: 'assets/images/portfolio/shared_space.png',
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: Container(
-                                margin: EdgeInsets.only(right: 32),
-                                child: ItemPortfolioWidget(
-                                  onHover: (onHover) {
-                                    onHoverInfinity = onHover;
-                                    setState(() {});
-                                  },
-                                  isOnHover: onHoverInfinity,
-                                  onTap: () {},
-                                  hexBackgroundColour: "68D2DF",
-                                  fit: BoxFit.contain,
-                                  url: 'assets/images/portfolio/infinity.png',
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: Container(
-                                margin: EdgeInsets.only(right: 32),
-                                child: ItemPortfolioWidget(
-                                  onHover: (onHover) {
-                                    onHoverSerenisima = onHover;
-                                    setState(() {});
-                                  },
-                                  isOnHover: onHoverSerenisima,
-                                  onTap: () {},
-                                  fit: BoxFit.contain,
-                                  hexBackgroundColour: "22A86A",
-                                  url: 'assets/images/portfolio/serenisima.png',
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
+                  child: Container(
+                    margin: EdgeInsets.only(right: 32),
+                    child: ItemPortfolioWidget(
+                      onHover: (onHover) {
+                        onHoverApperto = onHover;
+                        setState(() {});
+                      },
+                      isOnHover: onHoverApperto,
+                      fit: BoxFit.contain,
+                      onTap: () {},
+                      hexBackgroundColour: "387AFF",
+                      url: 'assets/images/portfolio/apperto.png',
+                    ),
                   ),
                 ),
-                CircleAvatar(
-                  backgroundColor: AppColors.hexToColor("F77947"),
-                  radius: 32,
-                  child: Icon(
-                    Icons.arrow_forward_ios,
-                    color: Colors.white,
-                    size: 24,
+                Expanded(
+                  child: Container(
+                    margin: EdgeInsets.only(right: 32),
+                    child: ItemPortfolioWidget(
+                      onHover: (onHover) {
+                        onHoverZeus = onHover;
+                        setState(() {});
+                      },
+                      fit: BoxFit.fill,
+                      isOnHover: onHoverZeus,
+                      onTap: () {},
+                      hexBackgroundColour: "387AFF",
+                      url: 'assets/images/portfolio/zeus_care.png',
+                    ),
                   ),
                 ),
               ],
             ),
           ),
+          Container(
+            padding: EdgeInsets.only(top: 24),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Expanded(
+                  child: Container(
+                    margin: EdgeInsets.only(left: 32, right: 32),
+                    child: ItemPortfolioWidget(
+                      onHover: (onHover) {
+                        onHoverSharedSpace = onHover;
+                        setState(() {});
+                      },
+                      isOnHover: onHoverSharedSpace,
+                      onTap: () {},
+                      fit: BoxFit.contain,
+                      hexBackgroundColour: "221058",
+                      url: 'assets/images/portfolio/shared_space.png',
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    margin: EdgeInsets.only(right: 32),
+                    child: ItemPortfolioWidget(
+                      onHover: (onHover) {
+                        onHoverInfinity = onHover;
+                        setState(() {});
+                      },
+                      isOnHover: onHoverInfinity,
+                      onTap: () {},
+                      hexBackgroundColour: "68D2DF",
+                      fit: BoxFit.fill,
+                      url: 'assets/images/portfolio/infinity.png',
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    margin: EdgeInsets.only(right: 32),
+                    child: ItemPortfolioWidget(
+                      onHover: (onHover) {
+                        onHoverSerenisima = onHover;
+                        setState(() {});
+                      },
+                      isOnHover: onHoverSerenisima,
+                      onTap: () {},
+                      fit: BoxFit.contain,
+                      hexBackgroundColour: "22A86A",
+                      url: 'assets/images/portfolio/serenisima.png',
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          )
         ],
       ),
     );
