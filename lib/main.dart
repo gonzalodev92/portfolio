@@ -122,28 +122,31 @@ class _MyHomePageState extends State<MyHomePage> {
                               ),
                             ),
                           ),
-                          Container(
-                            padding: EdgeInsets.only(left: 24, right: 24),
-                            child: Row(
-                              children: <Widget>[
-                                InkWell(
-                                  onTap: () {
-                                    pageController.nextPage(
-                                      duration: Duration(seconds: 1),
-                                      curve: Curves.fastOutSlowIn,
-                                    );
-                                  },
-                                  child: CircleAvatar(
-                                    backgroundColor: AppColors.hexToColor("F77947"),
-                                    radius: 32,
-                                    child: Icon(
-                                      Icons.arrow_forward_ios,
-                                      color: Colors.white,
-                                      size: 24,
+                          Opacity(
+                            opacity: (indexPage > 0) ? 0.0 : 1.0,
+                            child: Container(
+                              padding: EdgeInsets.only(left: 24, right: 24),
+                              child: Row(
+                                children: <Widget>[
+                                  InkWell(
+                                    onTap: () {
+                                      pageController.nextPage(
+                                        duration: Duration(seconds: 1),
+                                        curve: Curves.fastOutSlowIn,
+                                      );
+                                    },
+                                    child: CircleAvatar(
+                                      backgroundColor: AppColors.hexToColor("F77947"),
+                                      radius: 32,
+                                      child: Icon(
+                                        Icons.arrow_forward_ios,
+                                        color: Colors.white,
+                                        size: 24,
+                                      ),
                                     ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ],
